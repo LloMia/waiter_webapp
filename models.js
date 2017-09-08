@@ -5,7 +5,7 @@ module.exports = function(mongoUrl){
 
     const waiters = mongoose.model('waiters', {
         userName : String,
-        days  : Object
+        days  : Array
     });
 
     return {

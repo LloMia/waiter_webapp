@@ -1,9 +1,26 @@
-.form{
-  float: right;
-  padding-right: 50em;
+.form {
+
+    padding-right: 50em;
 }
 
-h1{
-  /*padding-right: 50em;*/
-  font-size: 20em;
+h1 {
+    /*padding-right: 50em;*/
+    font-size: 20%;
+}
+
+
+table {
+    border: 5px solid black;
+    border-collapse: collapse;
+    width: 950px;
+    height: 150px;
+}
+
+tr, th {
+    border: 5px solid black;
+    border-collapse: collapse;
+}
+
+#day {
+    /*margin: 100px;*/
 }

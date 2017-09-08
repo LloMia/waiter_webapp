@@ -23,6 +23,7 @@ app.set('view engine', 'handlebars');
 // app.get('/index', routes.selectedDays);
 app.get('/index/:user', routes.homepage);
 app.post('/index/:user', routes.selectedDays);
+app.get('/admin', routes.admin);
 app.get('/', function(req, res) {
     res.redirect('index');
 })

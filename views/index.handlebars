@@ -1,13 +1,20 @@
 <form class="form" action="" method="post">
-  <h1>Waiter's App</h1>
-  <input type="checkbox" name="days" value="Sunday">Sunday<br>
-<input type="checkbox" name="days" value="Monday">Monday<br>
-<input type="checkbox" name="days" value="Tuesday">Tuesday<br>
-<input type="checkbox" name="days" value="Wednesday">Wednesday<br>
-<input type="checkbox" name="days" value="Thursday">Thursday<br>
-<input type="checkbox" name="days" value="Friday">Friday<br>
-<input type="checkbox" name="days" value="Saturday">Saturday<br>
-<button type="submit" name="button">Submit</button>
+    <h1>Waiter's App</h1>
+    <input type="checkbox" name="days" value="Sunday">Sunday<br>
+    <input type="checkbox" name="days" value="Monday">Monday<br>
+    <input type="checkbox" name="days" value="Tuesday">Tuesday<br>
+    <input type="checkbox" name="days" value="Wednesday">Wednesday<br>
+    <input type="checkbox" name="days" value="Thursday">Thursday<br>
+    <input type="checkbox" name="days" value="Friday">Friday<br>
+    <input type="checkbox" name="days" value="Saturday">Saturday<br>
+    <button type="submit" name="button">Submit</button>
 
-<p>{{weeklyDays.days}}</p>
+
+        {{#each weeklyDays}}
+
+        <p>
+            {{this.days}}
+
+          </p>
+        {{/each}}
 </form>
