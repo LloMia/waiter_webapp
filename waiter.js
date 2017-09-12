@@ -107,6 +107,9 @@ module.exports = function(models) {
                         else if (curDay == 'Wednesday') {
                           data[3].user.push(username);
                         }
+                        else if (curDay == 'Thursday') {
+                          data[4].user.push(username);
+                        }
                         else if (curDay == 'Friday') {
                          data[5].user.push(username);
                        }
