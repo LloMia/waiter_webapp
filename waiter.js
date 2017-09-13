@@ -1,7 +1,10 @@
 module.exports = function(models) {
     const homepage = function(req, res, done) {
         user = req.params.user;
-        res.render('index');
+console.log(user);
+        res.render('index', {
+            user
+        });
     }
 
     const selectedDays = function(req, res) {
@@ -27,7 +30,7 @@ module.exports = function(models) {
                     if (err) {
                         return done(err)
                     }
-
+console.log(createdName);
 
 
                     res.render('index', {
@@ -85,7 +88,7 @@ module.exports = function(models) {
                         day: 'Saturday',
                         user: [],
                         status: ''
-                    },
+                    }
                 ]
 
                 for (var i = 0; i < results.length; i++) {
@@ -97,38 +100,54 @@ module.exports = function(models) {
                         var curDay = workingdays[j];
                         if (curDay == 'Sunday') {
                             data[0].user.push(username);
+                        } else if (curDay == 'Monday') {
+                            data[1].user.push(username);
+                        } else if (curDay == 'Tuesday') {
+                            data[2].user.push(username);
+                        } else if (curDay == 'Wednesday') {
+                            data[3].user.push(username);
+                        } else if (curDay == 'Thursday') {
+                            data[4].user.push(username);
+                        } else if (curDay == 'Friday') {
+                            data[5].user.push(username);
+                        } else if (curDay == 'Saturday') {
+                            data[6].user.push(username);
                         }
-                        else if (curDay == 'Monday') {
-                          data[1].user.push(username);
+                    }
+                    for (var b = 0; b < data.length; b++) {
+
+                        var namesPerDay = data[b].user;
+                        var statuscolor = data[b].status;
+
+                        if (namesPerDay.length < 3) {
+                            statuscolor = 'less';
                         }
-                        else if (curDay == 'Tuesday') {
-                          data[2].user.push(username);
+
+                        if (namesPerDay.length == 3) {
+                            statuscolor = 'enough';
                         }
-                        else if (curDay == 'Wednesday') {
-                          data[3].user.push(username);
+                        if (namesPerDay.length > 3) {
+                            statuscolor = 'many';
                         }
-                        else if (curDay == 'Thursday') {
-                          data[4].user.push(username);
-                        }
-                        else if (curDay == 'Friday') {
-                         data[5].user.push(username);
-                       }
-                       else if (curDay == 'Saturday') {
-                        data[6].user.push(username);
-                      }
+
+                        data[b].status = statuscolor
+
                     }
                 }
-                // console.log(data[0].user);
-
-                res.render('admin', {
+                var renderData = {
                     sunday: data[0].user,
                     monday: data[1].user,
                     tuesday: data[2].user,
                     wednesday: data[3].user,
                     thursday: data[4].user,
                     friday: data[5].user,
-                    saturday: data[6].user,
-                })
+                    saturday: data[6].user
+                }
+                console.log(data);
+
+                // console.log(renderData);
+
+                res.render('admin',  {data} )
             }
         })
 

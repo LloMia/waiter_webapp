@@ -1,14 +1,17 @@
-<form class="form" action="" method="post">
-    <h1>Waiter's App</h1>
-    <input type="checkbox" name="days" value="Sunday">Sunday<br>
-    <input type="checkbox" name="days" value="Monday">Monday<br>
-    <input type="checkbox" name="days" value="Tuesday">Tuesday<br>
-    <input type="checkbox" name="days" value="Wednesday">Wednesday<br>
-    <input type="checkbox" name="days" value="Thursday">Thursday<br>
-    <input type="checkbox" name="days" value="Friday">Friday<br>
-    <input type="checkbox" name="days" value="Saturday">Saturday<br>
+<h1 class="head">Waiter's App</h1><br><br><br>
+
+<p>Welcome {{user}}, Please select days in which you are comfortable working.</p>
+<form class="day" action="" method="post">
+    <input type="checkbox" name="days" value="Sunday">Sunday
+    <input type="checkbox" name="days" value="Monday">Monday
+    <input type="checkbox" name="days" value="Tuesday">Tuesday
+    <input type="checkbox" name="days" value="Wednesday">Wednesday
+    <input type="checkbox" name="days" value="Thursday">Thursday
+    <input type="checkbox" name="days" value="Friday">Friday
+    <input type="checkbox" name="days" value="Saturday">Saturday
     <button type="submit" name="button">Submit</button>
 
+  </form>
 
         {{#each weeklyDays}}
 
@@ -17,4 +20,3 @@
 
           </p>
         {{/each}}
-</form>

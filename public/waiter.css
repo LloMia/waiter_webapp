@@ -1,11 +1,12 @@
 .form {
 
-    padding-right: 50em;
+    padding-left: : 20em;
+    margin: 100px;
 }
 
 h1 {
-    /*padding-right: 50em;*/
-    font-size: 20%;
+  padding-left: 34%;
+font-size: 80px;
 }
 
 
@@ -16,11 +17,28 @@ table {
     height: 150px;
 }
 
-tr, th {
+ th, td {
     border: 5px solid black;
     border-collapse: collapse;
 }
 
-#day {
-    /*margin: 100px;*/
+
+.day {
+    padding-left: 15em;
+    font-size: 128%;
+
+}
+body{
+  background-image: url("images.jpg");
+}
+
+.less{
+  background-color: plum;
+
+}
+.enough{
+  background-color: green;
+}
+.many{
+  background-color: lavender;
 }
