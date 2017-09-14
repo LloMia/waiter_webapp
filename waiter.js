@@ -1,14 +1,14 @@
 module.exports = function(models) {
     const homepage = function(req, res, done) {
         user = req.params.user;
-console.log(user);
+
         res.render('index', {
             user
         });
     }
 
     const selectedDays = function(req, res) {
-
+        var daysOfTheweek = req.body.days
         models.waiters.findOneAndUpdate({
             userName: req.params.user
         }, {
@@ -30,18 +30,22 @@ console.log(user);
                     if (err) {
                         return done(err)
                     }
-console.log(createdName);
 
+                    console.log(result);
 
                     res.render('index', {
-                        weeklyDays: createdName
+                      userName: createdName.userName,
+                      daysOfTheweek: createdName.days
+                        // weeklyDays: createdName
                     })
                 })
             }
 
             if (result != null) {
                 res.render('index', {
-                    weeklyDays: result
+                  userName: result.userName,
+                  daysOfTheweek: result.days
+                    // weeklyDays: result
                 })
             }
 

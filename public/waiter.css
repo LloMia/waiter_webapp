@@ -17,7 +17,7 @@ table {
     height: 150px;
 }
 
- th, td {
+tr, th {
     border: 5px solid black;
     border-collapse: collapse;
 }

@@ -1,14 +1,14 @@
 <h1 class="head">Waiter's App</h1><br><br><br>
 
-<p>Welcome {{user}}, Please select days in which you are comfortable working.</p>
+<p style = "text-align : center; font-size : 200%">Welcome {{user}}, Please select days in which you are comfortable working.</p>
 <form class="day" action="" method="post">
-    <input type="checkbox" name="days" value="Sunday">Sunday
-    <input type="checkbox" name="days" value="Monday">Monday
-    <input type="checkbox" name="days" value="Tuesday">Tuesday
-    <input type="checkbox" name="days" value="Wednesday">Wednesday
-    <input type="checkbox" name="days" value="Thursday">Thursday
-    <input type="checkbox" name="days" value="Friday">Friday
-    <input type="checkbox" name="days" value="Saturday">Saturday
+    <input type="checkbox" name="days" value="Sunday"{{#if daysOfTheweek.Sunday}} checked{{/if}}>Sunday
+    <input type="checkbox" name="days" value="Monday"{{#if daysOfTheweek.Monday}} checked{{/if}}>Monday
+    <input type="checkbox" name="days" value="Tuesday"{{#if daysOfTheweek.Tuesday}} checked{{/if}}>Tuesday
+    <input type="checkbox" name="days" value="Wednesday"{{#if daysOfTheweek.Wednesday}} checked{{/if}}>Wednesday
+    <input type="checkbox" name="days" value="Thursday"{{#if daysOfTheweek.Thursday}} checked{{/if}}>Thursday
+    <input type="checkbox" name="days" value="Friday"{{#if daysOfTheweek.Friday}} checked{{/if}}>Friday
+    <input type="checkbox" name="days" value="Saturday"{{#if daysOfTheweek.Saturday}} checked{{/if}}>Saturday
     <button type="submit" name="button">Submit</button>
 
   </form>

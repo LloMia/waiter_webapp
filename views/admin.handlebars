@@ -1,18 +1,19 @@
 <form class="form" action="" method="post">
     <table>
+      <tr>
       {{#each data}}
-        <tr>
             <th>{{day}}</th>
-
-        </tr>
-            <tr>
+        {{/each}}
+      </tr>
+      <tr>
+      {{#each data}}
                 <td class="{{status}}">
                     {{#each user}}
                         <ul>{{this}}</ul>
                     {{/each}}
                   </td>
 
-                </tr>
         {{/each}}
+      </tr>
     </table>
 </form>
