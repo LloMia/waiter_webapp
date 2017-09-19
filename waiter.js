@@ -95,10 +95,10 @@ module.exports = function(models) {
                     }
                 ]
 
+                console.log(results);
                 for (var i = 0; i < results.length; i++) {
                     var username = results[i].userName;
                     var workingdays = results[i].days;
-                    // console.log(workingdays);
 
                     for (var j = 0; j < workingdays.length; j++) {
                         var curDay = workingdays[j];
@@ -138,28 +138,30 @@ module.exports = function(models) {
 
                     }
                 }
-                var renderData = {
-                    sunday: data[0].user,
-                    monday: data[1].user,
-                    tuesday: data[2].user,
-                    wednesday: data[3].user,
-                    thursday: data[4].user,
-                    friday: data[5].user,
-                    saturday: data[6].user
-                }
-                console.log(data);
-
-                // console.log(renderData);
 
                 res.render('admin',  {data} )
             }
         })
 
     }
+    const reset = function(req, res, done){
+
+
+              models.waiters.remove(function(err) {
+                  if (err) {
+
+                      return done(err);
+
+                  }
+                  res.render('reset')
+              })
+
+    }
 
     return {
         selectedDays,
         homepage,
-        admin
+        admin,
+        reset
     }
 }

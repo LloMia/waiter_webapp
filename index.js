@@ -25,6 +25,8 @@ app.get('/waiter/:user', routes.homepage);
 
 app.post('/waiter/:user', routes.selectedDays);
 app.get('/admin', routes.admin);
+app.get('/reset', routes.reset);
+app.post('/reset', routes.reset);
 app.get('/', function(req, res) {
     res.redirect('index');
 })
