@@ -36,8 +36,16 @@ app.get('/waiter/:user', routes.homepage);
 
 app.post('/waiter/:user', routes.selectedDays);
 app.get('/admin', routes.admin);
+<<<<<<< HEAD
 app.get('/admin', routes.reset);
 app.post('/admin', routes.reset);
+=======
+app.get('/reset', routes.reset);
+app.post('/reset', routes.reset);
+app.get('/', function(req, res) {
+    res.redirect('index');
+})
+>>>>>>> 94b9f2fe4bfd86ac405ea8b24d9ece71a158d76e
 app.set('port', process.env.PORT || 3005);
 app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));

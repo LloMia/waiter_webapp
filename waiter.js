@@ -168,10 +168,14 @@ module.exports = function(models) {
                     }
                 ]
 
+                console.log(results);
                 for (var i = 0; i < results.length; i++) {
                     var username = results[i].userName;
                     var workingdays = results[i].days;
+<<<<<<< HEAD
                     console.log(workingdays);
+=======
+>>>>>>> 94b9f2fe4bfd86ac405ea8b24d9ece71a158d76e
 
                     for (var j = 0; j < workingdays.length; j++) {
                         var curDay = workingdays[j];
@@ -217,7 +221,21 @@ module.exports = function(models) {
         })
 
     }
+<<<<<<< HEAD
     const reset = function(req, res){
+=======
+    const reset = function(req, res, done){
+
+
+              models.waiters.remove(function(err) {
+                  if (err) {
+
+                      return done(err);
+
+                  }
+                  res.render('reset')
+              })
+>>>>>>> 94b9f2fe4bfd86ac405ea8b24d9ece71a158d76e
 
     }
 
@@ -225,7 +243,11 @@ module.exports = function(models) {
         selectedDays,
         homepage,
         admin,
+<<<<<<< HEAD
         reset,
         startingpage
+=======
+        reset
+>>>>>>> 94b9f2fe4bfd86ac405ea8b24d9ece71a158d76e
     }
 }

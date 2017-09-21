@@ -42,3 +42,26 @@ body{
 .many{
   background-color: lavender;
 }
+.default{
+  background-color: plum;
+  height: 5em;
+  width: 17em;
+  text-align: center;
+  font-size: 150%;
+}
+
+.enoughOne{
+  background-color: green;
+  height: 5em;
+  width: 17em;
+  text-align: center;
+  font-size: 150%;
+}
+
+.manyOne{
+  background-color: lavender;
+  height: 5em;
+  width: 17em;
+  text-align: center;
+  font-size: 150%;
+}

@@ -1,4 +1,13 @@
+<h1>Waiters available</h1>
+
+<input type="button" class="default" name="plum" value="need more waiters for the day">
+<input type="button" class="enoughOne" name="green" value="enough waiters for the day">
+<input type="button" class="manyOne" name="plum" value="too much waiters for the day">
+
+
 <form class="form" action="" method="post">
+
+
     <table>
       <tr>
       {{#each data}}
@@ -16,6 +25,13 @@
         {{/each}}
       </tr>
     </table><br><br>
+<<<<<<< HEAD
     <button type="submit" name="button">Reset weekly Schedule</button>
+=======
+
+</form>
+<form class="" action="/reset" method="post">
+  <button type="submit" name="button">Reset weekly Schedule</button>
+>>>>>>> 94b9f2fe4bfd86ac405ea8b24d9ece71a158d76e
 
 </form>
