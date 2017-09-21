@@ -1,22 +1,20 @@
 <h1 class="head">Waiter's App</h1><br><br><br>
 
-<p style = "text-align : center; font-size : 200%">Welcome {{user}}, Please select days in which you are comfortable working.</p>
+<p>{{messages.error}}</p> 
+
+
+
+<p style = "text-align : center; font-size : 200%; color : green" >{{message}}</p>
 <form class="day" action="" method="post">
-    <input type="checkbox" name="days" value="Sunday"{{#if daysOfTheweek.Sunday}} checked{{/if}}>Sunday
-    <input type="checkbox" name="days" value="Monday"{{#if daysOfTheweek.Monday}} checked{{/if}}>Monday
-    <input type="checkbox" name="days" value="Tuesday"{{#if daysOfTheweek.Tuesday}} checked{{/if}}>Tuesday
-    <input type="checkbox" name="days" value="Wednesday"{{#if daysOfTheweek.Wednesday}} checked{{/if}}>Wednesday
-    <input type="checkbox" name="days" value="Thursday"{{#if daysOfTheweek.Thursday}} checked{{/if}}>Thursday
-    <input type="checkbox" name="days" value="Friday"{{#if daysOfTheweek.Friday}} checked{{/if}}>Friday
-    <input type="checkbox" name="days" value="Saturday"{{#if daysOfTheweek.Saturday}} checked{{/if}}>Saturday
+    <input type="checkbox" name="days" value="Sunday" {{#if lookingForMaps.Sunday}}checked{{/if}}>Sunday
+    <input type="checkbox" name="days" value="Monday" {{#if lookingForMaps.Monday}}checked{{/if}}>Monday
+    <input type="checkbox" name="days" value="Tuesday" {{#if lookingForMaps.Tuesday}}checked{{/if}}>Tuesday
+    <input type="checkbox" name="days" value="Wednesday" {{#if lookingForMaps.Wednesday}}checked{{/if}}>Wednesday
+    <input type="checkbox" name="days" value="Thursday" {{#if lookingForMaps.Thursday}}checked{{/if}}>Thursday
+    <input type="checkbox" name="days" value="Friday" {{#if lookingForMaps.Friday}}checked{{/if}}>Friday
+    <input type="checkbox" name="days" value="Saturday" {{#if lookingForMaps.Saturday}}checked{{/if}}>Saturday
     <button type="submit" name="button">Submit</button>
 
   </form>
 
-        {{#each weeklyDays}}
-
-        <p>
-            {{this.days}}
-
-          </p>
-        {{/each}}
+        <p style = "text-align : center; font-size : 200%; color : green" >{{info}}</p
