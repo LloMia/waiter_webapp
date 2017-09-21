@@ -3,88 +3,86 @@ module.exports = function(models) {
 
 
 
-  const startingpage= function(req,res,done){
-    var user = req.params.user;
-    var daysOfTheweek = req.body.days;
+    const landingpage = function(req, res, done) {
+        var user = req.params.user;
+        var daysOfTheweek = req.body.days;
 
-    if(user === undefined || daysOfTheweek === undefined){
-      req.flash("error" , "Please insert waiter name in the URL");
-      res.render('index');
-  }
-}
+        if (user === undefined || daysOfTheweek === undefined) {
+            req.flash("error", "Please insert waiter name in the URL");
+            res.render('index');
+        }
+    }
 
     const homepage = function(req, res, done) {
-      var  user = req.params.user;
-      var daysOfTheweek = req.body.days;
-      if(user == null){
-        req.flash("error" , "Please insert waiter name in the URL");
-        res.render('index')
-      }
-      models.waiters.findOne({
-        userName: req.params.user
-      },function(err, result){
-        if (err){
-          return done(err)
+        var user = req.params.user;
+        var daysOfTheweek = req.body.days;
+        if (user == null) {
+            req.flash("error", "Please insert waiter name in the URL");
+            res.render('index')
         }
-        else{
-          if(result){
-            var message = "Welcome back";
-
-            var daysChecked = result.days;
-            var lookingForMaps = {};
-            var map = function(Days){
-              for (var i = 0; i < daysChecked.length; i++) {
-              var daysTicked = daysChecked[i];
-
-              if (lookingForMaps[daysTicked] === undefined){
-                lookingForMaps[daysTicked] = "checked";
-              }
-
-              }
-              return lookingForMaps;
-            }
-
-            map(daysChecked);
-            console.log(map(daysChecked));
-
-
-            var details = {
-              user : result.userName,
-              day : result.days,
-              message: message,
-              lookingForMaps : lookingForMaps
-            }
-            res.render('index', details)
-          }
-        }
-
-        if (result == null){
-          models.waiters.create({
+        models.waiters.findOne({
             userName: req.params.user
-          },function(err, result){
-            if (err){
-              return done(err)
-            }
-            else{
-              if(result){
-                var message = "Welcome! please select your working days";
-                var details = {
-                  user : result.userName,
-                  day : result.days,
-                  message: message
-                }
-              res.render('index', details)
-            }
-            }
-        })
-      }
+        }, function(err, result) {
+            if (err) {
+                return done(err)
+            } else {
+                if (result) {
+                    var message = "Welcome back";
 
-    })
-  }
+                    var daysChecked = result.days;
+                    var lookingForMaps = {};
+                    var map = function(Days) {
+                        for (var i = 0; i < daysChecked.length; i++) {
+                            var daysTicked = daysChecked[i];
+
+                            if (lookingForMaps[daysTicked] === undefined) {
+                                lookingForMaps[daysTicked] = "checked";
+                            }
+
+                        }
+                        return lookingForMaps;
+                    }
+
+                    map(daysChecked);
+                    console.log(map(daysChecked));
+
+
+                    var details = {
+                        user: result.userName,
+                        day: result.days,
+                        message: message,
+                        lookingForMaps: lookingForMaps
+                    }
+                    res.render('index', details)
+                }
+            }
+
+            if (result == null) {
+                models.waiters.create({
+                    userName: req.params.user
+                }, function(err, result) {
+                    if (err) {
+                        return done(err)
+                    } else {
+                        if (result) {
+                            var message = "Welcome! please select your working days";
+                            var details = {
+                                user: result.userName,
+                                day: result.days,
+                                message: message
+                            }
+                            res.render('index', details)
+                        }
+                    }
+                })
+            }
+
+        })
+    }
 
 
     const selectedDays = function(req, res) {
-      var  user = req.params.user;
+        var user = req.params.user;
         var daysOfTheweek = req.body.days;
         console.log(user);
         models.waiters.findOneAndUpdate({
@@ -99,28 +97,28 @@ module.exports = function(models) {
 
 
 
-                models.waiters.findOne({
+            models.waiters.findOne({
 
-                    userName: req.params.user,
-                    // days: req.body.days
+                userName: req.params.user,
+                // days: req.body.days
 
-                }, function(err, createdName) {
-                    if (err) {
-                        return done(err)
+            }, function(err, createdName) {
+                if (err) {
+                    return done(err)
+                }
+                if (createdName) {
+                    var message = 'You have successfully submitted your working days.'
+
+                    var dataMessage = {
+                        userName: createdName.userName,
+                        daysOfTheweek: createdName.days,
+                        info: message
                     }
-                    if(createdName){
-                      var message = 'You have successfully submitted your working days.'
 
-              var dataMessage = {
-                userName: createdName.userName,
-                daysOfTheweek: createdName.days,
-                info:message
-              }
+                }
 
-              }
-
-                    res.render('index', dataMessage)
-                })
+                res.render('index', dataMessage)
+            })
 
         })
     }
@@ -168,14 +166,10 @@ module.exports = function(models) {
                     }
                 ]
 
-                console.log(results);
                 for (var i = 0; i < results.length; i++) {
                     var username = results[i].userName;
                     var workingdays = results[i].days;
-<<<<<<< HEAD
                     console.log(workingdays);
-=======
->>>>>>> 94b9f2fe4bfd86ac405ea8b24d9ece71a158d76e
 
                     for (var j = 0; j < workingdays.length; j++) {
                         var curDay = workingdays[j];
@@ -216,38 +210,31 @@ module.exports = function(models) {
                     }
                 }
 
-                res.render('admin',  {data} )
+                res.render('admin', {
+                    data
+                })
             }
         })
 
     }
-<<<<<<< HEAD
-    const reset = function(req, res){
-=======
-    const reset = function(req, res, done){
+    const reset = function(req, res, done) {
 
+        models.waiters.remove(function(err) {
+            if (err) {
 
-              models.waiters.remove(function(err) {
-                  if (err) {
+                return done(err);
 
-                      return done(err);
-
-                  }
-                  res.render('reset')
-              })
->>>>>>> 94b9f2fe4bfd86ac405ea8b24d9ece71a158d76e
+            }
+            res.render('reset')
+        });
 
     }
 
     return {
-        selectedDays,
-        homepage,
-        admin,
-<<<<<<< HEAD
-        reset,
-        startingpage
-=======
-        reset
->>>>>>> 94b9f2fe4bfd86ac405ea8b24d9ece71a158d76e
+      selectedDays,
+      homepage,
+      admin,
+      reset,
+      landingpage
     }
 }
