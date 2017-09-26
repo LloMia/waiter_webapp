@@ -189,7 +189,7 @@ module.exports = function(models) {
                             data[6].user.push(username);
                         }
                     }
-                    for (var b = 0; b < data.user.length; b++) {
+                    for (var b = 0; b < data.length; b++) {
 
                         var namesPerDay = data[b].user;
                         var statuscolor = data[b].status;
